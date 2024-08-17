@@ -1,3 +1,42 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    body {
+        @apply font-sans m-0 p-0 h-full w-full bg-gradient-to-l from-purple1 to-purple2 text-white antialiased;
+    }
+    .navbar {
+        @apply w-full z-10 lg:px-60 lg:max-2xl:px-0 fixed top-0 left-0 max-lg:bg-footer transition-all ease-in duration-300;
+    }
+    .updated-navbar {
+        @apply w-full z-10 lg:px-60 lg:max-2xl:px-0 fixed top-0 left-0 bg-navbar shadow-navbar backdrop-blur-lg transition-all ease-in duration-300 max-lg:bg-footer max-lg:shadow-none;
+    }
+    .nav-main {
+        @apply lg:flex items-center justify-between py-4 lg:px-10 px-7;
+    }
+    .nav-icon {
+        @apply flex items-center mr-10 max-lg:bg-footer flex-shrink-0;
+    }
+    .nav-logo {
+        @apply w-48;
+    }
+    .nav-menu {
+        @apply text-3xl absolute right-8 top-5 cursor-pointer lg:hidden text-violet-600;
+    }
+    .nav-menu-icon {
+        @apply w-10 h-10 cursor-pointer;
+    }
+    .nav-items {
+        @apply gap-24 max-lg:gap-2 flex items-center pb-0 max-lg:pb-5 max-lg:absolute static z-auto max-lg:z-[-1] max-lg:bg-footer max-lg:mt-4 max-lg:flex-col max-lg:left-0 max-lg:w-full w-auto pl-0 transition-all duration-300 ease-out;
+    }
+    .nav-item {
+        @apply font-semibold text-xl items-center relative pb-2 mt-2;
+    }
+    .nav-item-navlink {
+        @apply flex justify-center items-center gap-2 after:border-solid after:invisible hover:after:visible after:border-violet-900 after:border-2 after:rounded-2xl after:bottom-1 after:block after:left-0 after:absolute after:w-0 after:transition-all after:hover:w-full max-lg:after:hidden lg:max-xl:flex-col lg:max-xl:gap-0;
+    }
+    .nav-github-logo {
+        @apply w-10 h-10 text-violet-600 rounded-full duration-300 hover:shadow-social hover:shadow-purple-900;
+    }
+}
