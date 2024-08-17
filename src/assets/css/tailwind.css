@@ -6,6 +6,7 @@
     body {
         @apply font-sans m-0 p-0 h-full w-full bg-gradient-to-l from-purple1 to-purple2 text-white antialiased;
     }
+    /* Navbar */
     .navbar {
         @apply w-full z-10 lg:px-60 lg:max-2xl:px-0 fixed top-0 left-0 max-lg:bg-footer transition-all ease-in duration-300;
     }
@@ -38,5 +39,22 @@
     }
     .nav-github-logo {
         @apply w-10 h-10 text-violet-600 rounded-full duration-300 hover:shadow-social hover:shadow-purple-900;
+    }
+
+    /* Footer */
+    .footer-section {
+        @apply w-full bottom-0 bg-footer py-4;
+    }
+    .footer-content {
+        @apply text-center mx-20 grid grid-cols-1 grid-rows-1 md:flex justify-between gap-3;
+    }
+    .footer-copyright {
+        @apply flex justify-center items-center font-semibold w-full;
+    }
+    .footer-social-media {
+        @apply flex justify-center items-center gap-6 w-full;
+    }
+    .footer-icon {
+        @apply w-9 h-9 py-1 duration-300 rounded-2xl hover:shadow-social hover:p-2 hover:shadow-violet-900;
     }
 }
