@@ -41,6 +41,56 @@
         @apply w-10 h-10 text-violet-600 rounded-full duration-300 hover:shadow-social hover:shadow-purple-900;
     }
 
+    /* Home Page */
+    .home-section {
+        @apply flex justify-center px-28 h-full pt-20 gap-16 sm:max-lg:px-2 max-lg:px-2 max-lg:gap-0 max-lg:flex-col;
+    }
+    .home-left {
+        @apply justify-items-center pt-52 max-lg:pt-5 max-lg:w-full text-center lg:max-2xl:px-0 lg:max-2xl:pt-44;
+    }
+    .home-heading {
+        @apply text-4xl max-lg:text-3xl font-semibold pb-4;
+    }
+    .home-heading-name {
+        @apply text-4xl max-lg:text-3xl font-semibold;
+    }
+    .home-typewriter {
+        @apply pt-4 max-lg:pt-4 text-white text-4xl max-lg:text-3xl font-semibold lg:max-2xl:w-80 lg:max-2xl:pt-4;
+    }
+    .home-right {
+        @apply max-lg:my-5 flex-shrink-0 max-lg:flex max-lg:justify-center max-lg:items-center lg:max-2xl:ml-20;
+    }
+    .home-image-right {
+        @apply max-lg:w-[400px] max-lg:h-[350px] w-[600px] h-[600px];
+    }
+    .home-about-section {
+        @apply px-80 max-lg:pt-5 sm:max-lg:px-10 max-lg:px-10 pt-16  h-full flex justify-center max-lg:flex-col;
+    }
+    .home-about-description {
+        @apply justify-center flex flex-col font-semibold;
+    }
+    .home-about-description-header {
+        @apply text-center text-5xl max-lg:text-3xl;
+    }
+    .home-about-body {
+        @apply mt-10 text-lg;
+    }
+    .home-about-image-div {
+        @apply items-center justify-center flex max-lg:flex max-lg:justify-center max-lg:items-center flex-shrink-0;
+    }
+    .home-about-image {
+        @apply max-lg:w-[400px] max-lg:h-[350px] w-[600px] h-[600px];
+    }
+    .contact-body {
+        @apply flex flex-col justify-center items-center gap-4 text-4xl max-lg:text-3xl font-semibold py-10;
+    }
+    .contact-icons {
+        @apply flex flex-wrap gap-8 lg:gap-10 justify-center;
+    }
+    .contact-icon {
+        @apply text-white w-12 h-12 py-1 duration-300 rounded-2xl hover:p-2 transition-all hover:shadow-social hover:shadow-violet-900;
+    }
+
     /* Footer */
     .footer-section {
         @apply w-full bottom-0 bg-footer py-4;
