@@ -180,4 +180,23 @@
     .error-button {
         @apply bg-violet-600 p-2 rounded-md w-fit max-lg:m-auto;
     }
+
+    /* Loader */
+    .loader {
+        @apply w-full h-screen flex items-center justify-center;
+    }
+
+    /* Others */
+    .wave {
+        @apply animate-wave relative inline-block origin-custom z-[-2];
+    }
+    .strong-description {
+        @apply text-violet-700 font-bold;
+    }
+    .strong {
+        @apply text-violet-700 font-bold  max-lg:text-3xl;
+    }
+    #p7R_mc14 {
+        @apply hover:shadow-spec cursor-pointer;
+    }
 }
