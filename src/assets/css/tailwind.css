@@ -91,6 +91,53 @@
         @apply text-white w-12 h-12 py-1 duration-300 rounded-2xl hover:p-2 transition-all hover:shadow-social hover:shadow-violet-900;
     }
 
+    /* About Page */
+    .about-section {
+        @apply h-full pt-28 max-lg:pt-2;
+    }
+    .about-body {
+        @apply px-80 lg:px-44 sm:max-lg:px-10 max-lg:px-10 pt-14  h-full flex justify-center max-lg:flex-col;
+    }
+    .about-left {
+        @apply w-full flex items-center justify-center flex-col text-center pt-20;
+    }
+    .about-heading {
+        @apply pb-10 text-4xl max-lg:text-3xl font-semibold;
+    }
+    .about-body {
+        @apply text-lg font-semibold text-left;
+    }
+    .about-right {
+        @apply w-full flex justify-center items-center;
+    }
+    .about-image {
+        @apply max-lg:w-[400px] max-lg:h-[400px] w-[600px] h-[600px];
+    }
+    .skills-heading {
+        @apply pt-10 text-4xl font-semibold text-violet-700 text-center;
+    }
+    .skills-body {
+        @apply px-60 max-lg:px-2 box-border;
+    }
+    .skills-content {
+        @apply flex flex-wrap justify-center py-10  gap-10;
+    }
+    .skills {
+        @apply text-7xl max-lg:text-5xl border-violet-700 rounded-xl w-max p-12 max-lg:p-10 border-2 shadow-md  shadow-violet-500 hover:shadow-skills hover:shadow-violet-500 duration-300 transition-all;
+    }
+    .tools-heading {
+        @apply pt-10 text-4xl font-semibold text-violet-700 text-center;
+    }
+    .tools-body {
+        @apply px-60 max-lg:px-2 box-border;
+    }
+    .tools-content {
+        @apply flex flex-wrap justify-center py-10 gap-10;
+    }
+    .tools {
+        @apply text-7xl max-lg:text-5xl border-violet-700 rounded-xl w-max p-12 max-lg:p-10 border-2 shadow-md  shadow-violet-500 hover:shadow-skills hover:shadow-violet-500 duration-300 transition-all;
+    }
+
     /* Footer */
     .footer-section {
         @apply w-full bottom-0 bg-footer py-4;
