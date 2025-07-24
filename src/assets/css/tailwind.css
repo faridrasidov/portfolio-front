@@ -93,7 +93,7 @@
 
     /* About Page */
     .about-section {
-        @apply h-full pt-28 max-lg:pt-2;
+        @apply h-full px-20 pt-10 max-lg:pt-2;
     }
     .about-body {
         @apply px-80 lg:px-44 sm:max-lg:px-10 max-lg:px-10 pt-14  h-full flex justify-center max-lg:flex-col;
@@ -111,7 +111,7 @@
         @apply w-full flex justify-center items-center;
     }
     .about-image {
-        @apply max-lg:w-[400px] max-lg:h-[400px] w-[600px] h-[600px];
+        @apply max-lg:w-[400px] max-lg:h-[350px] w-[600px] h-[450px];
     }
     .skills-heading {
         @apply pt-10 text-4xl font-semibold text-violet-700 text-center;
