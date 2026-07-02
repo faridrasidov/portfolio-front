@@ -14,7 +14,9 @@ export default {
                 accentCyanDark: "#0891b2",
             },
             fontFamily: {
-                sans: ["Raleway", "arial"],
+                sans: ["Inter", "sans-serif"],
+                orbitron: ["Orbitron", "monospace"],
+                mono: ["JetBrains Mono", "monospace"],
             },
             spacing: {
                 37.5: "37.5rem",

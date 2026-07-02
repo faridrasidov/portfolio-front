@@ -1,45 +1,21 @@
 <template>
-  <div class="footer-section">
-    <div class="footer-content">
-      <div class="footer-copyright">
-        Designed and Developed by Farid Rashidov
-      </div>
-      <div class="footer-copyright">Copyright &copy; 2024</div>
-      <div class="footer-social-media">
-        <a aria-label="LinkedIn" href="https://www.linkedin.com/in/faridrasidov/">
-          <FaLinkedinIn class="footer-icon"/>
-        </a>
-        <a aria-label="Instagram" href="https://www.instagram.com/faridrasiidov/">
-          <FaInstagram class="footer-icon"/>
-        </a>
-        <a aria-label="GitHub" href="https://github.com/faridrasidov/">
-          <FaGithub class="footer-icon"/>
-        </a>
-        <a aria-label="Email" href="mailto:ftm5pv70@duck.com">
-          <MdEmail class="footer-icon"/>
-        </a>
-        <a aria-label="Telegram" href="https://t.me/powwershell">
-          <FaTelegramPlane class="footer-icon"/>
-        </a>
-      </div>
+  <footer class="cyber-footer">
+    <div class="cyber-footer-inner">
+      <span class="cyber-footer-logo">&lt;xakep /&gt;</span>
+      <p>Copyright &copy; 2024 Farid Rashidov — Built with Vue, Vite, and focus.</p>
+      <a aria-label="GitHub" href="https://github.com/faridrasidov" target="_blank" rel="noreferrer">
+        <FaGithub class="cyber-footer-icon"/>
+      </a>
     </div>
-  </div>
+  </footer>
 </template>
 
 <script>
-import FaGithub from "../assets/icons/social/github.svg"
-import FaInstagram from "../assets/icons/social/instagram.svg"
-import FaLinkedinIn from "../assets/icons/social/linkedin.svg"
-import MdEmail from "../assets/icons/social/mail.svg"
-import FaTelegramPlane from "../assets/icons/social/telegram.svg"
+import FaGithub from "../assets/icons/social/github.svg";
 
 export default {
   components: {
     FaGithub,
-    FaInstagram,
-    FaLinkedinIn,
-    MdEmail,
-    FaTelegramPlane,
   },
-}
+};
 </script>

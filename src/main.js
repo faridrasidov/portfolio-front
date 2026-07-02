@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import './global.css';
+import './assets/css/fonts.css';
 import './assets/css/tailwind.css'
 import router from './router'
 
