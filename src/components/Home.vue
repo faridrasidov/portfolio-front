@@ -140,17 +140,51 @@
         </div>
       </div>
     </section>
+
+    <section id="contact" class="cyber-section cyber-contact">
+      <div class="cyber-section-glow cyber-section-glow-right"></div>
+      <div class="cyber-container">
+        <div class="cyber-section-heading cyber-contact-heading">
+          <p>03 // CONTACT</p>
+          <h2>Let&apos;s Connect</h2>
+        </div>
+
+        <div class="cyber-contact-grid">
+          <a
+              v-for="contact in contacts"
+              :key="contact.label"
+              :href="contact.href"
+              class="cyber-contact-card"
+              target="_blank"
+              rel="noreferrer"
+          >
+            <span class="corner-accent"></span>
+            <component :is="contact.icon" class="cyber-contact-icon" />
+            <span class="cyber-contact-label">{{ contact.label }}</span>
+            <span class="cyber-contact-value">{{ contact.value }}</span>
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
 </template>
 
 <script>
-import {onBeforeUnmount, onMounted, ref} from "vue";
+import {markRaw, onBeforeUnmount, onMounted, ref} from "vue";
+import DiscordIcon from "../assets/icons/social/discord.svg";
 import FaGithub from "../assets/icons/social/github.svg";
+import LinkedinIcon from "../assets/icons/social/linkedin.svg";
+import MailIcon from "../assets/icons/social/mail.svg";
+import TelegramIcon from "../assets/icons/social/telegram.svg";
 import Typewriter from "./Typewriter.vue";
 
 export default {
   components: {
+    DiscordIcon,
     FaGithub,
+    LinkedinIcon,
+    MailIcon,
+    TelegramIcon,
     Typewriter,
   },
   setup() {
@@ -309,11 +343,39 @@ export default {
       },
     ];
 
+    const contacts = [
+      {
+        label: "LinkedIn",
+        value: "/in/faridrasidov",
+        href: "https://www.linkedin.com/in/faridrasidov/",
+        icon: markRaw(LinkedinIcon),
+      },
+      {
+        label: "Telegram",
+        value: "@powwershell",
+        href: "https://t.me/powwershell",
+        icon: markRaw(TelegramIcon),
+      },
+      {
+        label: "Email",
+        value: "ftm5pv70@duck.com",
+        href: "mailto:ftm5pv70@duck.com",
+        icon: markRaw(MailIcon),
+      },
+      {
+        label: "Discord",
+        value: "faridrasidov",
+        href: "https://discord.com/",
+        icon: markRaw(DiscordIcon),
+      },
+    ];
+
     return {
       roles,
       skills,
       stats,
       projects,
+      contacts,
       terminalInput,
       terminalLines,
     };

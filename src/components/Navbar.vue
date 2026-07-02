@@ -54,6 +54,7 @@ export default {
       {name: "home", href: "/#home", section: "home"},
       {name: "about", href: "/#about", section: "about"},
       {name: "projects", href: "/#projects", section: "projects"},
+      {name: "contact", href: "/#contact", section: "contact"},
     ];
 
     const handleMenuToggle = () => {

@@ -109,7 +109,7 @@
     }
 
     .cyber-nav-links {
-        @apply pointer-events-none invisible absolute left-0 right-0 top-16 flex -translate-y-4 flex-col gap-1 border-t border-[#00f5ff]/10 bg-[#050510]/95 px-4 py-4 opacity-0 transition-all duration-300 lg:pointer-events-auto lg:visible lg:static lg:flex lg:translate-y-0 lg:flex-row lg:items-center lg:gap-8 lg:border-0 lg:bg-transparent lg:p-0 lg:opacity-100;
+        @apply pointer-events-none invisible absolute left-0 right-0 top-16 flex -translate-y-4 flex-col gap-1 border-t border-[#00f5ff]/10 bg-[#050510]/95 px-4 py-4 opacity-0 transition-all duration-300 lg:pointer-events-auto lg:visible lg:static lg:flex lg:translate-y-0 lg:flex-row lg:items-center lg:gap-6 lg:border-0 lg:bg-transparent lg:p-0 lg:opacity-100 xl:gap-8;
     }
 
     .cyber-nav-links.open {
@@ -416,6 +416,44 @@
 
     .cyber-github-cta {
         @apply inline-flex items-center gap-3 rounded-lg border border-[#00f5ff]/30 px-8 py-4 font-mono text-xs font-black tracking-[0.15em] text-[#00f5ff] no-underline transition-all duration-300 hover:border-[#00f5ff] hover:bg-[#00f5ff]/5 hover:shadow-[0_0_30px_rgba(0,245,255,0.18)];
+    }
+
+    .cyber-contact {
+        @apply pt-10;
+    }
+
+    .cyber-contact-heading {
+        @apply text-center;
+    }
+
+    .cyber-contact-grid {
+        @apply grid gap-5 sm:grid-cols-2 lg:grid-cols-4;
+    }
+
+    .cyber-contact-card {
+        @apply relative flex min-h-[9.5rem] flex-col items-start justify-between overflow-hidden rounded-lg border border-[#00f5ff]/10 bg-[#0d0d1a] p-5 text-left no-underline transition-all duration-300 hover:-translate-y-1 hover:border-[#00f5ff]/55 hover:bg-[#00f5ff]/[0.035] hover:shadow-[0_0_30px_rgba(0,245,255,0.08),inset_0_0_30px_rgba(0,245,255,0.02)] focus-visible:-translate-y-1 focus-visible:border-[#00f5ff]/55 focus-visible:bg-[#00f5ff]/[0.035] focus-visible:outline-none focus-visible:shadow-[0_0_30px_rgba(0,245,255,0.08),inset_0_0_30px_rgba(0,245,255,0.02)];
+    }
+
+    .cyber-contact-icon {
+        @apply h-8 w-8 text-white transition-all duration-300;
+    }
+
+    .cyber-contact-card:hover .cyber-contact-icon,
+    .cyber-contact-card:focus-visible .cyber-contact-icon {
+        @apply scale-110 text-[#00f5ff] drop-shadow-[0_0_16px_rgba(0,245,255,0.75)];
+    }
+
+    .cyber-contact-label {
+        @apply mt-4 font-mono text-xs font-black uppercase tracking-[0.22em] text-[#d94dff];
+    }
+
+    .cyber-contact-value {
+        @apply mt-2 max-w-full break-words font-mono text-sm font-bold tracking-[0.06em] text-[#8888aa] transition-colors duration-300;
+    }
+
+    .cyber-contact-card:hover .cyber-contact-value,
+    .cyber-contact-card:focus-visible .cyber-contact-value {
+        @apply text-[#00f5ff];
     }
 
     .cyber-footer {
