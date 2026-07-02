@@ -2,6 +2,7 @@
   <div class="about-section">
     <div class="about-body">
       <div class="about-left">
+        <p class="section-eyebrow">About</p>
         <h1 class="about-heading">
           Know Who <strong class="strong">I'M</strong>
         </h1>
@@ -13,37 +14,24 @@
             <br/>
             My self-study adventure began with an insatiable desire for web development,
             deeply immersing myself in the
-            <strong class="strong-description">
-              Python</strong>,
-            <strong class="strong-description">
-              JS</strong>,
-            <strong class="strong-description">
-              HTML</strong>,
-            <strong class="strong-description">
-              CSS</strong>,
-            <strong class="strong-description">
-              MySQL</strong>,
-            <strong class="strong-description">
-              Bash scripting and TypeScript</strong> stack.
+            <strong class="strong-description">Python</strong>,
+            <strong class="strong-description">JS</strong>,
+            <strong class="strong-description">HTML</strong>,
+            <strong class="strong-description">CSS</strong>,
+            <strong class="strong-description">MySQL</strong>,
+            <strong class="strong-description">Bash scripting</strong>, and
+            <strong class="strong-description">TypeScript</strong> stack.
             <br/>
             <br/>
-
             As a senior
             <strong class="strong-description">Python developer</strong>
             since
             <strong class="strong-description">2022</strong>,
-            I excel in backend systems, honing skills in
+            I work on backend systems, API testing, and security-focused engineering.
+            Since mid-<strong class="strong-description">2024</strong>, I have been building practical
             <strong class="strong-description">cybersecurity</strong>
-            (<strong class="strong-description">OWASP</strong>)
-            since mid-<strong class="strong-description">2024</strong> to fortify digital defenses. I craft high-performance
-            applications with
-            <strong class="strong-description">JS</strong>,
-            <strong class="strong-description">Python</strong>.
-            My passion for robotics led me to
-            <strong class="strong-description">Arduino</strong>,
-            <strong class="strong-description">C++</strong>, and
-            <strong class="strong-description">Raspberry Pi</strong>
-            over the last two years, constantly expanding my horizons.
+            knowledge around
+            <strong class="strong-description">OWASP</strong>, automation, Linux tooling, and API defense.
           </p>
         </div>
       </div>
@@ -51,31 +39,38 @@
         <img alt="about-image" class="about-image" src="/about-image.svg"/>
       </div>
     </div>
-    <h1 class="skills-heading">Skills</h1>
-    <div class="skills-body">
-      <div class="skills-content">
-        <div
-            v-for="(item, index) in SkillsData"
-            :key="index"
-            class="skills"
-        >
-          <component :is="item.icon" class="w-[72px] h-[72px]"/>
-        </div>
-      </div>
-    </div>
 
-    <h1 class="tools-heading">Tools</h1>
-    <div class="tools-body">
-      <div class="tools-content">
-        <div
-            v-for="(item, index) in ToolsData"
-            :key="index"
-            class="tools"
-        >
-          <component :is="item.icon" class="w-[72px] h-[72px]"/>
+    <section class="skill-section" aria-labelledby="skills-heading">
+      <h2 id="skills-heading" class="skills-heading">Skills</h2>
+      <div class="skills-body">
+        <div class="skills-content">
+          <div
+              v-for="item in SkillsData"
+              :key="item.label"
+              class="skills"
+          >
+            <component :is="item.icon" class="skill-icon"/>
+            <span class="skill-label">{{ item.label }}</span>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
+
+    <section class="tool-section" aria-labelledby="tools-heading">
+      <h2 id="tools-heading" class="tools-heading">Tools</h2>
+      <div class="tools-body">
+        <div class="tools-content">
+          <div
+              v-for="item in ToolsData"
+              :key="item.label"
+              class="tools"
+          >
+            <component :is="item.icon" class="skill-icon"/>
+            <span class="skill-label">{{ item.label }}</span>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -114,7 +109,6 @@ import SiTypescript from "../assets/icons/skills/ts.svg";
 import FaVuejs from "../assets/icons/skills/vue.svg";
 import SiVuetify from "../assets/icons/skills/vuetify.svg";
 
-
 export default {
   components: {
     FaWindows,
@@ -127,44 +121,44 @@ export default {
     FaUbuntu,
     SiBurpsuite,
     SiDbeaver,
-    RiNotionFill
+    RiNotionFill,
   },
   setup() {
     const ToolsData = [
-      {icon: FaUbuntu},
-      {icon: FaDebian},
-      {icon: SiLinuxmint},
-      {icon: FaWindows},
-      {icon: SiJetbrains},
-      {icon: SiPycharm},
-      {icon: SiWebstorm},
-      {icon: SiBurpsuite},
-      {icon: SiDbeaver},
-      {icon: RiNotionFill},
-      {icon: SiDuckduckgo},
+      {icon: FaUbuntu, label: "Ubuntu"},
+      {icon: FaDebian, label: "Debian"},
+      {icon: SiLinuxmint, label: "Linux Mint"},
+      {icon: FaWindows, label: "Windows"},
+      {icon: SiJetbrains, label: "JetBrains"},
+      {icon: SiPycharm, label: "PyCharm"},
+      {icon: SiWebstorm, label: "WebStorm"},
+      {icon: SiBurpsuite, label: "Burp Suite"},
+      {icon: SiDbeaver, label: "DBeaver"},
+      {icon: RiNotionFill, label: "Notion"},
+      {icon: SiDuckduckgo, label: "DuckDuckGo"},
     ];
 
     const SkillsData = [
-      {icon: FaPython},
-      {icon: SiArduino},
-      {icon: FaSquareJs},
-      {icon: SiTypescript},
-      {icon: FaHtml5},
-      {icon: FaCss3Alt},
-      {icon: SiComptia},
-      {icon: SiOwasp},
-      {icon: FaDocker},
-      {icon: SiTorproject},
-      {icon: SiNginx},
-      {icon: SiFlask},
-      {icon: SiFastapi},
-      {icon: SiOpenapiinitiative},
-      {icon: SiNuxtdotjs},
-      {icon: FaVuejs},
-      {icon: SiVuetify},
-      {icon: SiSqlalchemy},
-      {icon: DiSqllite},
-      {icon: FaGitAlt},
+      {icon: FaPython, label: "Python"},
+      {icon: SiArduino, label: "Arduino"},
+      {icon: FaSquareJs, label: "JavaScript"},
+      {icon: SiTypescript, label: "TypeScript"},
+      {icon: FaHtml5, label: "HTML"},
+      {icon: FaCss3Alt, label: "CSS"},
+      {icon: SiComptia, label: "CompTIA"},
+      {icon: SiOwasp, label: "OWASP"},
+      {icon: FaDocker, label: "Docker"},
+      {icon: SiTorproject, label: "Tor"},
+      {icon: SiNginx, label: "Nginx"},
+      {icon: SiFlask, label: "Flask"},
+      {icon: SiFastapi, label: "FastAPI"},
+      {icon: SiOpenapiinitiative, label: "OpenAPI"},
+      {icon: SiNuxtdotjs, label: "Nuxt"},
+      {icon: FaVuejs, label: "Vue"},
+      {icon: SiVuetify, label: "Vuetify"},
+      {icon: SiSqlalchemy, label: "SQLAlchemy"},
+      {icon: DiSqllite, label: "SQLite"},
+      {icon: FaGitAlt, label: "Git"},
     ];
 
     return {

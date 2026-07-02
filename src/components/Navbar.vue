@@ -59,6 +59,8 @@
             class="nav-item">
           <router-link
               :to="item.link"
+              :exact-active-class="item.exact ? 'nav-link-active' : ''"
+              active-class="nav-link-active"
               class="nav-item-navlink"
               @click="closeMenu">
             <component :is="item.icon" class="w-5"/>
@@ -117,7 +119,7 @@ export default {
     });
 
     const links = [
-      {name: "Home", icon: RiHome3Line, link: "/"},
+      {name: "Home", icon: RiHome3Line, link: "/", exact: true},
       {name: "About", icon: GoPerson, link: "/about"},
       {
         name: "Projects",

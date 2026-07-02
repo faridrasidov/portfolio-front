@@ -9,6 +9,9 @@ export default {
                 purple2: "#140F23",
                 footer: "#0a0416",
                 navbar: "#1b1a2ea9",
+                accentCyan: "#22d3ee",
+                accentCyanSoft: "#67e8f9",
+                accentCyanDark: "#0891b2",
             },
             fontFamily: {
                 sans: ["Raleway", "arial"],
@@ -19,10 +22,10 @@ export default {
             boxShadow: {
                 spec: "0px 0px 5px 5px rgba(0 0 0 / 0.05)",
                 navbar: "0px 10px 10px 0px rgba(9, 5, 29, 0.171)",
-                skills: "0px 0px 18px 7px rgba(9, 5, 29, 0.171)",
-                project: "0px 0px 15px 2px rgba(9, 5, 29, 0.171)",
-                projectHover: "0px 0px 18px 5px rgba(9, 5, 29, 0.171)",
-                social: "inset 0 0px 8px 2px rgb(0 0 0 / 0.55), 0px 0px 10px 4px rgba(0, 0, 0, 0.171)",
+                skills: "0px 0px 18px 7px rgba(34, 211, 238, 0.16)",
+                project: "0px 0px 15px 2px rgba(34, 211, 238, 0.10)",
+                projectHover: "0px 0px 20px 4px rgba(34, 211, 238, 0.18)",
+                social: "inset 0 0px 8px 2px rgb(0 0 0 / 0.55), 0px 0px 10px 4px rgba(34, 211, 238, 0.16)",
             },
             transformOrigin: {
                 custom: "70% 70%",
