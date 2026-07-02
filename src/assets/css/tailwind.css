@@ -23,7 +23,7 @@
         @apply w-48;
     }
     .nav-menu {
-        @apply text-3xl absolute right-8 top-5 cursor-pointer lg:hidden text-violet-600;
+        @apply text-3xl absolute right-8 top-5 cursor-pointer lg:hidden text-violet-600 bg-transparent border-0 p-0;
     }
     .nav-menu-icon {
         @apply w-10 h-10 cursor-pointer;
@@ -64,7 +64,7 @@
         @apply max-lg:w-[400px] max-lg:h-[350px] w-[600px] h-[600px];
     }
     .home-about-section {
-        @apply px-80 max-lg:pt-5 sm:max-lg:px-10 max-lg:px-10 pt-16  h-full flex justify-center max-lg:flex-col;
+        @apply px-72 max-lg:pt-5 sm:max-lg:px-10 max-lg:px-10 pt-16  h-full flex justify-center max-lg:flex-col;
     }
     .home-about-description {
         @apply justify-center flex flex-col font-semibold;
@@ -93,7 +93,7 @@
 
     /* About Page */
     .about-section {
-        @apply h-full px-20 pt-10 max-lg:pt-2;
+        @apply h-full pt-10 max-lg:pt-2 lg:px-10;
     }
     .about-body {
         @apply px-80 lg:px-44 sm:max-lg:px-10 max-lg:px-10 pt-14  h-full flex justify-center max-lg:flex-col;
@@ -108,7 +108,7 @@
         @apply text-lg font-semibold text-left;
     }
     .about-right {
-        @apply w-full flex justify-center items-center;
+        @apply w-full flex justify-center items-center ;
     }
     .about-image {
         @apply max-lg:w-[400px] max-lg:h-[350px] w-[600px] h-[450px];

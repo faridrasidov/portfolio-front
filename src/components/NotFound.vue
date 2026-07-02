@@ -10,7 +10,7 @@
             It looks like that page doesn't exist <br/>
             please check the URL and try again.
           </p>
-          <RouterLink className="error-button" to="/">
+          <RouterLink class="error-button" to="/">
             Go Back Home
           </RouterLink>
         </div>

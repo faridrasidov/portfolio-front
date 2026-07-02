@@ -6,7 +6,13 @@
           <img alt="Logo" class="nav-logo" src="../assets/logo.png"/>
         </a>
       </div>
-      <div class="nav-menu" @click="handleMenuToggle">
+      <button
+          :aria-expanded="isActive"
+          aria-label="Toggle navigation menu"
+          class="nav-menu"
+          type="button"
+          @click="handleMenuToggle"
+      >
         <svg
             class="w-8 h-8"
             fill="none"
@@ -38,28 +44,29 @@
               stroke-width="2"
           />
         </svg>
-      </div>
+      </button>
       <ul
           :class="[
             'nav-items',
-            menuClass ?
-            'top-14 opacity-100' :
-            'max-lg:-translate-y-16 max-lg:opacity-0 duration-500'
+            menuClass
+              ? 'top-14 opacity-100 max-lg:pointer-events-auto max-lg:visible'
+              : 'top-0 max-lg:-translate-y-16 max-lg:opacity-0 max-lg:pointer-events-none max-lg:invisible duration-500'
           ]"
       >
-        <li v-for="(item, index) in links"
+        <li
+            v-for="(item, index) in links"
             :key="index"
             class="nav-item">
           <router-link
               :to="item.link"
               class="nav-item-navlink"
-              @click="handleMenuToggle">
+              @click="closeMenu">
             <component :is="item.icon" class="w-5"/>
             {{ item.name }}
           </router-link>
         </li>
         <li class="nav-github">
-          <a href="https://github.com/faridrasidov">
+          <a aria-label="GitHub" href="https://github.com/faridrasidov">
             <FaGithub class="nav-github-logo"/>
           </a>
         </li>
@@ -69,30 +76,32 @@
 </template>
 
 <script>
-import {onMounted, ref} from "vue";
+import {onBeforeUnmount, onMounted, ref} from "vue";
 import FaGithub from "../assets/icons/social/github.svg"
 import RiHome3Line from "../assets/icons/navbar/home.svg"
 import GoPerson from "../assets/icons/navbar/about.svg"
 import AiOutlineFundProjectionScreen from "../assets/icons/navbar/project.svg"
-import IoMdClose from "../assets/icons/navbar/close.svg"
-import IoMenu from "../assets/icons/navbar/menu.svg"
 
 export default {
   components: {
-    RiHome3Line, GoPerson,
+    RiHome3Line,
+    GoPerson,
     AiOutlineFundProjectionScreen,
     FaGithub,
-    IoMdClose,
-    IoMenu
   },
   setup() {
-    let navbar = ref(false);
-    let menuClass = ref(false);
-    let isActive = ref(false);
+    const navbar = ref(false);
+    const menuClass = ref(false);
+    const isActive = ref(false);
 
     const handleMenuToggle = () => {
       isActive.value = !isActive.value;
       menuClass.value = isActive.value;
+    };
+
+    const closeMenu = () => {
+      isActive.value = false;
+      menuClass.value = false;
     };
 
     const scrollHandler = () => {
@@ -101,6 +110,10 @@ export default {
 
     onMounted(() => {
       window.addEventListener("scroll", scrollHandler);
+    });
+
+    onBeforeUnmount(() => {
+      window.removeEventListener("scroll", scrollHandler);
     });
 
     const links = [
@@ -118,6 +131,7 @@ export default {
       menuClass,
       isActive,
       handleMenuToggle,
+      closeMenu,
       links,
     };
   },

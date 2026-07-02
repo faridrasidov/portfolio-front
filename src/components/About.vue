@@ -7,12 +7,12 @@
         </h1>
         <div class="about-card">
           <p class="about-card-body">
-            Hi Everyone, I am
+            Hi everyone, I am
             <strong class="strong-description">Farid Rashidov</strong>.
             <br/>
-            <br/> My self-study adventure commenced with an insatiable desire
-            to understand the intricacies of web development. I immersed
-            myself in the Stack:
+            <br/>
+            My self-study adventure began with an insatiable desire for web development,
+            deeply immersing myself in the
             <strong class="strong-description">
               Python</strong>,
             <strong class="strong-description">
@@ -22,26 +22,28 @@
             <strong class="strong-description">
               CSS</strong>,
             <strong class="strong-description">
-              MySQl</strong>,
-            <strong class="strong-description">
-              Bash Script and TypeScript</strong>.
-            through online resources, documentation, and real-world projects.
-            <br/>
-            <br/> In the realm of back-end development, I've delved deep
-            into
-            <strong class="strong-description">
-              JS</strong>,
-            <strong class="strong-description">
-              Python</strong>,
-            <strong class="strong-description">
               MySQL</strong>,
-            using these three to craft best-performance applications.
-            I also love to craft robotics, because of it, last 2 years
-            started learning
             <strong class="strong-description">
-              Arduino, C++ and RasberryPi
-            </strong>
-            to improve my skills on robotics too
+              Bash scripting and TypeScript</strong> stack.
+            <br/>
+            <br/>
+
+            As a senior
+            <strong class="strong-description">Python developer</strong>
+            since
+            <strong class="strong-description">2022</strong>,
+            I excel in backend systems, honing skills in
+            <strong class="strong-description">cybersecurity</strong>
+            (<strong class="strong-description">OWASP</strong>)
+            since mid-<strong class="strong-description">2024</strong> to fortify digital defenses. I craft high-performance
+            applications with
+            <strong class="strong-description">JS</strong>,
+            <strong class="strong-description">Python</strong>.
+            My passion for robotics led me to
+            <strong class="strong-description">Arduino</strong>,
+            <strong class="strong-description">C++</strong>, and
+            <strong class="strong-description">Raspberry Pi</strong>
+            over the last two years, constantly expanding my horizons.
           </p>
         </div>
       </div>
@@ -86,6 +88,9 @@ import SiJetbrains from "../assets/icons/tools/jetbrains.svg";
 import SiPycharm from "../assets/icons/tools/pycharm.svg";
 import SiWebstorm from "../assets/icons/tools/webstorm.svg";
 import FaUbuntu from "../assets/icons/tools/ubuntu.svg";
+import SiDbeaver from "../assets/icons/tools/dbeaver.svg";
+import RiNotionFill from "../assets/icons/tools/notion.svg";
+import SiBurpsuite from "../assets/icons/tools/burp.svg";
 
 import SiArduino from "../assets/icons/skills/arduino.svg";
 import FaCss3Alt from "../assets/icons/skills/css.svg";
@@ -97,6 +102,13 @@ import SiNginx from "../assets/icons/skills/nginx.svg";
 import SiNuxtdotjs from "../assets/icons/skills/nuxt.svg";
 import FaPython from "../assets/icons/skills/python.svg";
 import DiSqllite from "../assets/icons/skills/sqllite.svg";
+import SiOwasp from "../assets/icons/skills/owasp.svg";
+import SiFastapi from "../assets/icons/skills/fast_api.svg";
+import SiOpenapiinitiative from "../assets/icons/skills/open_api.svg";
+import SiSqlalchemy from "../assets/icons/skills/sqla.svg";
+import SiTorproject from "../assets/icons/skills/tor.svg";
+import FaDocker from "../assets/icons/skills/docker.svg";
+import SiComptia from "../assets/icons/skills/comptia.svg";
 
 import SiTypescript from "../assets/icons/skills/ts.svg";
 import FaVuejs from "../assets/icons/skills/vue.svg";
@@ -112,34 +124,47 @@ export default {
     SiJetbrains,
     SiPycharm,
     SiWebstorm,
-    FaUbuntu
+    FaUbuntu,
+    SiBurpsuite,
+    SiDbeaver,
+    RiNotionFill
   },
   setup() {
     const ToolsData = [
-      {icon: FaDebian},
-      {icon: FaWindows},
       {icon: FaUbuntu},
+      {icon: FaDebian},
       {icon: SiLinuxmint},
-      {icon: SiDuckduckgo},
+      {icon: FaWindows},
       {icon: SiJetbrains},
       {icon: SiPycharm},
       {icon: SiWebstorm},
+      {icon: SiBurpsuite},
+      {icon: SiDbeaver},
+      {icon: RiNotionFill},
+      {icon: SiDuckduckgo},
     ];
 
     const SkillsData = [
       {icon: FaPython},
+      {icon: SiArduino},
       {icon: FaSquareJs},
       {icon: SiTypescript},
       {icon: FaHtml5},
       {icon: FaCss3Alt},
+      {icon: SiComptia},
+      {icon: SiOwasp},
+      {icon: FaDocker},
+      {icon: SiTorproject},
       {icon: SiNginx},
       {icon: SiFlask},
+      {icon: SiFastapi},
+      {icon: SiOpenapiinitiative},
       {icon: SiNuxtdotjs},
       {icon: FaVuejs},
       {icon: SiVuetify},
+      {icon: SiSqlalchemy},
       {icon: DiSqllite},
       {icon: FaGitAlt},
-      {icon: SiArduino}
     ];
 
     return {

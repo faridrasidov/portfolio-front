@@ -4,21 +4,21 @@
       <div class="footer-copyright">
         Designed and Developed by Farid Rashidov
       </div>
-      <div class="footer-copyright">Copyright © 2024</div>
+      <div class="footer-copyright">Copyright &copy; 2024</div>
       <div class="footer-social-media">
-        <a href="https://www.linkedin.com/in/faridrasidov/">
+        <a aria-label="LinkedIn" href="https://www.linkedin.com/in/faridrasidov/">
           <FaLinkedinIn class="footer-icon"/>
         </a>
-        <a href="https://www.instagram.com/faridrasiidov/">
-          <FaInstagram class="footer-icon  "/>
+        <a aria-label="Instagram" href="https://www.instagram.com/faridrasiidov/">
+          <FaInstagram class="footer-icon"/>
         </a>
-        <a href="https://github.com/faridrasidov/">
+        <a aria-label="GitHub" href="https://github.com/faridrasidov/">
           <FaGithub class="footer-icon"/>
         </a>
-        <a href="mailto: ftm5pv70@duck.com">
+        <a aria-label="Email" href="mailto:ftm5pv70@duck.com">
           <MdEmail class="footer-icon"/>
         </a>
-        <a href="https://t.me/powwershell">
+        <a aria-label="Telegram" href="https://t.me/powwershell">
           <FaTelegramPlane class="footer-icon"/>
         </a>
       </div>
@@ -39,7 +39,7 @@ export default {
     FaInstagram,
     FaLinkedinIn,
     MdEmail,
-    FaTelegramPlane
-  }
+    FaTelegramPlane,
+  },
 }
 </script>
