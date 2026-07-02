@@ -77,7 +77,7 @@
     }
 
     .cyber-menu-button {
-        @apply relative h-10 w-10 border-0 bg-transparent p-0 md:hidden;
+        @apply relative h-10 w-10 border-0 bg-transparent p-0 lg:hidden;
     }
 
     .cyber-menu-button .line {
@@ -109,7 +109,7 @@
     }
 
     .cyber-nav-links {
-        @apply pointer-events-none invisible absolute left-0 right-0 top-16 flex -translate-y-4 flex-col gap-1 border-t border-[#00f5ff]/10 bg-[#050510]/95 px-4 py-4 opacity-0 transition-all duration-300 md:pointer-events-auto md:visible md:static md:flex md:translate-y-0 md:flex-row md:items-center md:gap-8 md:border-0 md:bg-transparent md:p-0 md:opacity-100;
+        @apply pointer-events-none invisible absolute left-0 right-0 top-16 flex -translate-y-4 flex-col gap-1 border-t border-[#00f5ff]/10 bg-[#050510]/95 px-4 py-4 opacity-0 transition-all duration-300 lg:pointer-events-auto lg:visible lg:static lg:flex lg:translate-y-0 lg:flex-row lg:items-center lg:gap-8 lg:border-0 lg:bg-transparent lg:p-0 lg:opacity-100;
     }
 
     .cyber-nav-links.open {
@@ -117,7 +117,7 @@
     }
 
     .cyber-nav-link {
-        @apply relative block border-b border-[#00f5ff]/5 py-3 font-mono text-sm font-semibold capitalize tracking-[0.2em] text-[#7777aa] no-underline transition-all duration-300 hover:text-[#00f5ff] hover:drop-shadow-[0_0_8px_rgba(0,245,255,0.8)] md:border-0 md:py-0;
+        @apply relative block py-3 font-mono text-sm font-semibold capitalize tracking-[0.2em] text-[#7777aa] no-underline transition-all duration-300 hover:text-[#00f5ff] hover:drop-shadow-[0_0_8px_rgba(0,245,255,0.8)] lg:py-0;
     }
 
     .cyber-nav-link.active {
@@ -125,7 +125,7 @@
     }
 
     .cyber-nav-progress {
-        @apply pointer-events-none absolute bottom-1 left-0 h-px w-0 bg-[#00f5ff] shadow-[0_0_8px_rgba(0,245,255,0.95)] transition-all duration-300 md:-bottom-1;
+        @apply pointer-events-none absolute bottom-1 left-0 hidden h-px w-0 bg-[#00f5ff] shadow-[0_0_8px_rgba(0,245,255,0.95)] transition-all duration-300 lg:block lg:-bottom-1;
     }
 
     .cyber-nav-link:hover .cyber-nav-progress,
@@ -134,13 +134,21 @@
     }
 
     .cyber-github-link {
-        @apply flex items-center gap-2 border-0 py-3 text-[#7777aa] transition-all duration-300 hover:text-[#00f5ff] hover:drop-shadow-[0_0_10px_rgba(0,245,255,0.85)] md:py-0;
+        @apply flex items-center gap-2 border-0 py-3 font-mono text-sm font-semibold tracking-[0.2em] text-[#7777aa] transition-all duration-300 hover:text-[#00f5ff] hover:drop-shadow-[0_0_10px_rgba(0,245,255,0.85)] lg:py-0 lg:tracking-normal;
+    }
+
+    .cyber-github-username {
+        @apply inline lg:hidden;
     }
 
     .cyber-github-icon,
     .cyber-footer-icon,
     .github-inline {
-        @apply h-5 w-5;
+        @apply h-8 w-8;
+    }
+
+    .cyber-github-icon {
+        @apply hidden lg:block;
     }
 
     .cyber-hero {
@@ -331,7 +339,15 @@
     }
 
     .cyber-terminal-body {
-        @apply space-y-1 p-4 text-[0.78rem] leading-6;
+        @apply min-h-[20rem] space-y-1 p-4 text-[0.78rem] leading-6 lg:min-h-[24.4rem];
+    }
+
+    .cyber-terminal-body p {
+        @apply min-h-6;
+    }
+
+    .terminal-active-line {
+        @apply text-[#e2e8f0];
     }
 
     .cyber-terminal i {
@@ -344,6 +360,10 @@
 
     .cyber-terminal .purple {
         @apply text-[#d94dff] drop-shadow-[0_0_5px_rgba(191,0,255,0.5)];
+    }
+
+    .cyber-terminal .success {
+        @apply text-[#67e8f9] drop-shadow-[0_0_5px_rgba(0,245,255,0.35)];
     }
 
     .cyber-project-grid {

@@ -8,7 +8,7 @@
       <div class="cyber-hero-content">
         <div class="cyber-status-badge">
           <span class="cyber-status-dot"></span>
-          AVAILABLE FOR PROJECTS &amp; API SECURITY WORK
+          AVAILABLE FOR BOUNTIES &amp; PROJECTS
         </div>
 
         <h1 class="cyber-title">
@@ -18,6 +18,7 @@
         <div class="cyber-typewriter">
           <Typewriter
               :autoStart="true"
+              :delay="90"
               :deleteSpeed="35"
               :loop="true"
               :strings="roles"
@@ -90,14 +91,16 @@
                 <span class="green"></span>
                 <em>bash - farid@portfolio:~</em>
               </div>
-              <div class="cyber-terminal-body">
-                <p><b>farid@portfolio</b><i>:~$</i> whoami</p>
-                <p class="muted">backend_dev &amp;&amp; api_security_tester</p>
-                <p><b>farid@portfolio</b><i>:~$</i> cat skills.json</p>
-                <p class="muted">["Python", "FastAPI", "OWASP", "Docker", "Linux"]</p>
-                <p><b>farid@portfolio</b><i>:~$</i> ls ./focus/</p>
-                <p class="purple">api-testing&nbsp;&nbsp;telegram-bots&nbsp;&nbsp;backend-systems&nbsp;&nbsp;security-review</p>
-                <p><b>farid@portfolio</b><i>:~$</i> <span class="terminal-cursor">█</span></p>
+              <div class="cyber-terminal-body" aria-live="polite">
+                <p v-for="(line, index) in terminalLines" :key="`${line.type}-${index}-${line.text}`">
+                  <template v-if="line.type === 'command'">
+                    <b>farid@portfolio</b><i>:~$</i> {{ line.text }}
+                  </template>
+                  <span v-else :class="line.variant">{{ line.text }}</span>
+                </p>
+                <p class="terminal-active-line">
+                  <b>farid@portfolio</b><i>:~$</i> {{ terminalInput }}<span class="terminal-cursor">_</span>
+                </p>
               </div>
             </div>
           </div>
@@ -122,8 +125,8 @@
               <span v-for="tag in project.tags" :key="tag">{{ tag }}</span>
             </div>
             <div class="cyber-project-meta">
-              <span><b>★</b> {{ project.stars }}</span>
-              <a :href="project.href" target="_blank" rel="noreferrer">VIEW ›</a>
+              <span><b>*</b> {{ project.stars }}</span>
+              <a :href="project.href" target="_blank" rel="noreferrer">VIEW -&gt;</a>
             </div>
           </article>
         </div>
@@ -132,7 +135,7 @@
           <a class="cyber-github-cta" href="https://github.com/faridrasidov?tab=repositories" target="_blank" rel="noreferrer">
             <FaGithub class="github-inline" />
             SEE ALL ON GITHUB
-            <span>↗</span>
+            <span>-&gt;</span>
           </a>
         </div>
       </div>
@@ -141,6 +144,7 @@
 </template>
 
 <script>
+import {onBeforeUnmount, onMounted, ref} from "vue";
 import FaGithub from "../assets/icons/social/github.svg";
 import Typewriter from "./Typewriter.vue";
 
@@ -150,6 +154,95 @@ export default {
     Typewriter,
   },
   setup() {
+    const terminalInput = ref("");
+    const terminalLines = ref([]);
+    const terminalCommands = [
+      {
+        command: "whoami",
+        outputs: [
+          {text: "backend_dev && api_security_tester", variant: "muted"},
+        ],
+      },
+      {
+        command: "cat skills.json",
+        outputs: [
+          {text: '["Python", "FastAPI", "OWASP", "Docker", "Linux"]', variant: "muted"},
+        ],
+      },
+      {
+        command: "ls ./focus/",
+        outputs: [
+          {text: "api-testing  telegram-bots  backend-systems  security-review", variant: "purple"},
+        ],
+      },
+      {
+        command: "scan --target portfolio-api",
+        outputs: [
+          {text: "auth-check: pass | rate-limit: review | cors: locked", variant: "success"},
+        ],
+      },
+      {
+        command: "deploy --dry-run",
+        outputs: [
+          {text: "docker/nginx/linux pipeline ready", variant: "muted"},
+        ],
+      },
+    ];
+    let terminalTimer;
+    let terminalStopped = false;
+
+    const sleep = (duration) => new Promise((resolve) => {
+      terminalTimer = window.setTimeout(resolve, duration);
+    });
+
+    const pushTerminalLine = (line) => {
+      terminalLines.value = [...terminalLines.value, line].slice(-8);
+    };
+
+    const typeCommand = async (command) => {
+      terminalInput.value = "";
+
+      for (const character of command) {
+        if (terminalStopped) return;
+        terminalInput.value += character;
+        await sleep(52 + Math.random() * 36);
+      }
+    };
+
+    const runTerminal = async () => {
+      while (!terminalStopped) {
+        terminalLines.value = [];
+
+        for (const item of terminalCommands) {
+          if (terminalStopped) return;
+
+          await typeCommand(item.command);
+          await sleep(350);
+          pushTerminalLine({type: "command", text: item.command});
+          terminalInput.value = "";
+
+          for (const output of item.outputs) {
+            if (terminalStopped) return;
+            await sleep(260);
+            pushTerminalLine({type: "output", ...output});
+          }
+
+          await sleep(620);
+        }
+
+        await sleep(1200);
+      }
+    };
+
+    onMounted(() => {
+      runTerminal();
+    });
+
+    onBeforeUnmount(() => {
+      terminalStopped = true;
+      window.clearTimeout(terminalTimer);
+    });
+
     const roles = [
       "Backend Developer",
       "API Tester",
@@ -166,7 +259,7 @@ export default {
 
     const stats = [
       {label: "Backend Focus", value: "2022+", icon: "</>"},
-      {label: "Security Focus", value: "2024+", icon: "盾"},
+      {label: "Security Focus", value: "2024+", icon: "SEC"},
       {label: "Core Stack", value: "Python", icon: "$"},
       {label: "API Testing", value: "OWASP", icon: "bug"},
     ];
@@ -221,6 +314,8 @@ export default {
       skills,
       stats,
       projects,
+      terminalInput,
+      terminalLines,
     };
   },
 };

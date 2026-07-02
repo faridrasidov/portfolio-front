@@ -24,6 +24,10 @@ export default {
       type: Number,
       default: 50,
     },
+    delay: {
+      type: Number,
+      default: 75,
+    },
   },
   mounted() {
     new Typewriter(this.$refs.typewriter, {
@@ -31,6 +35,7 @@ export default {
       autoStart: this.autoStart,
       loop: this.loop,
       deleteSpeed: this.deleteSpeed,
+      delay: this.delay,
     });
   },
 };

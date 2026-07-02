@@ -29,6 +29,7 @@
         <li>
           <a class="cyber-github-link" href="https://github.com/faridrasidov" target="_blank" rel="noreferrer" aria-label="GitHub">
             <FaGithub class="cyber-github-icon" />
+            <span class="cyber-github-username">@faridrasidov</span>
           </a>
         </li>
       </ul>
