@@ -21,7 +21,8 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          # Updated to 22, as Node 20 is being deprecated
+          node-version: 22
           cache: npm
 
       - name: Install dependencies
@@ -39,4 +40,6 @@ jobs:
           REMOTE_PORT: ${{ secrets.SERVER_PORT }}
           SOURCE: dist/
           TARGET: ${{ secrets.SERVER_TARGET_DIR }}
+          # Added --rsync-path if rsync is in a non-standard location, 
+          # though standard install usually works.
           ARGS: -rlgoDzvc --delete
