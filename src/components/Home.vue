@@ -172,7 +172,7 @@ import FaGithub from "../assets/icons/social/github.svg";
 import LinkedinIcon from "../assets/icons/social/linkedin.svg";
 import MailIcon from "../assets/icons/social/mail.svg";
 import TelegramIcon from "../assets/icons/social/telegram.svg";
-import Typewriter from "./Typewriter.vue";
+import Typewriter from "./TypeWriter.vue";
 
 export default {
   components: {
