@@ -252,7 +252,7 @@
     }
 
     .cyber-section-heading {
-        @apply mb-16;
+        @apply mb-8;
     }
 
     .cyber-section-heading p,
@@ -339,7 +339,7 @@
     }
 
     .cyber-terminal-body {
-        @apply min-h-[20rem] space-y-1 p-4 text-[0.78rem] leading-6 lg:min-h-[24.4rem];
+        @apply min-h-[18.3rem] space-y-1 p-4 text-[0.78rem] leading-6 2xl:min-h-[16.2rem];
     }
 
     .cyber-terminal-body p {

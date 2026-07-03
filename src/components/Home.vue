@@ -27,8 +27,13 @@
         </div>
 
         <p class="cyber-hero-copy">
-          I build Python backends, Telegram bots, and test APIs with a security mindset.
-          Backend systems meet practical offensive security, focused on software that holds under pressure.
+          <span class="block">
+            I break things professionally and build things securely. 
+          </span>
+          <span>
+            Backend systems architecture meets offensive security — finding vulnerabilities others miss, 
+            shipping code that holds under attack.
+          </span>
         </p>
 
         <div class="cyber-actions">
@@ -55,20 +60,11 @@
           <div>
             <div class="cyber-copy-block">
               <p>
-                I am a backend developer focused on Python systems, API testing, automation,
-                and practical cybersecurity. My work sits between building useful software and
-                finding the weak points that make software fail.
-              </p>
-              <p>
-                I work with backend APIs, Telegram bots, Linux tooling, and OWASP-minded testing.
-                I care about clean implementation, predictable behavior, and defensive engineering.
-              </p>
-              <p>
-                Currently focused on API security, authentication logic, deployment basics,
-                and backend services that are simple to maintain.
+                Backend Developer with a strong foundation in building scalable, high-performance systems and a deep specialization in API security. 
+                I combine expert-level Python development with a bug-hunter’s mindset, proactively applying OWASP standards throughout the SDLC. 
+                Proven experience in designing secure, maintainable architectures and streamlining deployment with Docker and Linux, ensuring code is as resilient as it is efficient.
               </p>
             </div>
-
             <div class="cyber-stats-grid">
               <article v-for="stat in stats" :key="stat.label" class="cyber-stat-card">
                 <div class="cyber-stat-icon">{{ stat.icon }}</div>
@@ -194,7 +190,7 @@ export default {
       {
         command: "whoami",
         outputs: [
-          {text: "backend_dev && api_security_tester", variant: "muted"},
+          {text: "backend_dev && security_engineer", variant: "muted"},
         ],
       },
       {
@@ -206,7 +202,7 @@ export default {
       {
         command: "ls ./focus/",
         outputs: [
-          {text: "api-testing  telegram-bots  backend-systems  security-review", variant: "purple"},
+          {text: "api-architecture backend-systems  security-review", variant: "purple"},
         ],
       },
       {
@@ -279,16 +275,18 @@ export default {
 
     const roles = [
       "Backend Developer",
-      "API Tester",
-      "Bug Hunter",
       "Security Engineer",
+      "API Architect",
+      "Bug Hunter",
       "Python Developer",
     ];
 
     const skills = [
-      "Python", "JavaScript", "TypeScript", "FastAPI", "Flask", "SQLAlchemy",
-      "SQLite", "Docker", "Nginx", "Linux", "Bash", "Git",
-      "Burp Suite", "OWASP", "OpenAPI", "Telegram Bots", "Vue", "API Security",
+      "Python", "JavaScript", "TypeScript",
+      "FastAPI", "Flask", "SQLAlchemy", "RabbitMQ", "Redis", "PostgreSQL",
+      "Docker", "Nginx", "Linux", "Bash", "Git",
+      "Tor", "API Architecture", "AWS", "CTF",
+      "Burp Suite", "OWASP", "Pentesting", "OpenAPI", "Cursor IDE", 
     ];
 
     const stats = [
