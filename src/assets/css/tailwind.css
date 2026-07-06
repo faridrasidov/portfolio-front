@@ -1,4 +1,4 @@
-@tailwind base;
+﻿@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -286,7 +286,7 @@
     }
 
     .cyber-stat-icon {
-        @apply mb-2 font-mono text-sm font-black text-[#bf00ff] drop-shadow-[0_0_8px_rgba(191,0,255,0.45)];
+        @apply mb-2 h-6 w-6 text-[#bf00ff] drop-shadow-[0_0_8px_rgba(191,0,255,0.45)];
     }
 
     .cyber-stat-card strong {
@@ -339,7 +339,7 @@
     }
 
     .cyber-terminal-body {
-        @apply min-h-[18.3rem] space-y-1 p-4 text-[0.78rem] leading-6 2xl:min-h-[16.2rem];
+        @apply min-h-[18.3rem] space-y-1 p-4 text-[0.78rem] leading-6 2xl:min-h-[18.8rem];
     }
 
     .cyber-terminal-body p {
@@ -498,3 +498,4 @@
         @apply bg-[#00f5ff] p-2 rounded-md w-fit max-lg:m-auto text-[#050510] font-bold;
     }
 }
+

@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <main class="cyber-page">
     <section id="home" class="cyber-hero">
       <div class="cyber-grid-bg"></div>
@@ -31,7 +31,7 @@
             I break things professionally and build things securely. 
           </span>
           <span>
-            Backend systems architecture meets offensive security — finding vulnerabilities others miss, 
+            Backend systems architecture meets offensive security â€” finding vulnerabilities others miss, 
             shipping code that holds under attack.
           </span>
         </p>
@@ -61,13 +61,13 @@
             <div class="cyber-copy-block">
               <p>
                 Backend Developer with a strong foundation in building scalable, high-performance systems and a deep specialization in API security. 
-                I combine expert-level Python development with a bug-hunter’s mindset, proactively applying OWASP standards throughout the SDLC. 
+                I combine expert-level Python development with a bug-hunterâ€™s mindset, proactively applying OWASP standards throughout the SDLC. 
                 Proven experience in designing secure, maintainable architectures and streamlining deployment with Docker and Linux, ensuring code is as resilient as it is efficient.
               </p>
             </div>
             <div class="cyber-stats-grid">
               <article v-for="stat in stats" :key="stat.label" class="cyber-stat-card">
-                <div class="cyber-stat-icon">{{ stat.icon }}</div>
+                <component :is="stat.icon" class="cyber-stat-icon" />
                 <strong>{{ stat.value }}</strong>
                 <span>{{ stat.label }}</span>
               </article>
@@ -167,11 +167,15 @@
 
 <script>
 import {markRaw, onBeforeUnmount, onMounted, ref} from "vue";
+import BugIcon from "../assets/icons/bug.svg";
+import CodeIcon from "../assets/icons/code.svg";
 import DiscordIcon from "../assets/icons/social/discord.svg";
 import FaGithub from "../assets/icons/social/github.svg";
 import LinkedinIcon from "../assets/icons/social/linkedin.svg";
 import MailIcon from "../assets/icons/social/mail.svg";
+import ShieldIcon from "../assets/icons/shield.svg";
 import TelegramIcon from "../assets/icons/social/telegram.svg";
+import TerminalIcon from "../assets/icons/terminal.svg";
 import Typewriter from "./TypeWriter.vue";
 
 export default {
@@ -290,10 +294,10 @@ export default {
     ];
 
     const stats = [
-      {label: "Backend Focus", value: "2022+", icon: "</>"},
-      {label: "Security Focus", value: "2024+", icon: "SEC"},
-      {label: "Core Stack", value: "Python", icon: "$"},
-      {label: "API Testing", value: "OWASP", icon: "bug"},
+      {label: "Backend Focus", value: "2022+", icon: markRaw(CodeIcon)},
+      {label: "Security Focus", value: "2024+", icon: markRaw(ShieldIcon)},
+      {label: "Core Stack", value: "Python", icon: markRaw(TerminalIcon)},
+      {label: "API Testing", value: "OWASP", icon: markRaw(BugIcon)},
     ];
 
     const projects = [
@@ -380,3 +384,5 @@ export default {
   },
 };
 </script>
+
+
