@@ -31,7 +31,7 @@
             I break things professionally and build things securely. 
           </span>
           <span>
-            Backend systems architecture meets offensive security â€” finding vulnerabilities others miss, 
+            Backend systems architecture meets offensive security - finding vulnerabilities others miss,
             shipping code that holds under attack.
           </span>
         </p>
@@ -61,7 +61,7 @@
             <div class="cyber-copy-block">
               <p>
                 Backend Developer with a strong foundation in building scalable, high-performance systems and a deep specialization in API security. 
-                I combine expert-level Python development with a bug-hunterâ€™s mindset, proactively applying OWASP standards throughout the SDLC. 
+                I combine expert-level Python development with a bug-hunter's mindset, proactively applying OWASP standards throughout the SDLC.
                 Proven experience in designing secure, maintainable architectures and streamlining deployment with Docker and Linux, ensuring code is as resilient as it is efficient.
               </p>
             </div>
