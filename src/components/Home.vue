@@ -113,17 +113,25 @@
         </div>
 
         <div class="cyber-project-grid">
-          <article v-for="project in projects" :key="project.title" class="cyber-project-card">
+          <article
+              v-for="project in projects"
+              :key="project.title"
+              class="cyber-project-card"
+              :class="{'cyber-project-card-empty': project.placeholder}"
+              :aria-hidden="project.placeholder || undefined"
+          >
             <span class="corner-accent"></span>
-            <h3>{{ project.title }}</h3>
-            <p>{{ project.description }}</p>
-            <div class="cyber-project-tags">
-              <span v-for="tag in project.tags" :key="tag">{{ tag }}</span>
-            </div>
-            <div class="cyber-project-meta">
-              <span><b>*</b> {{ project.stars }}</span>
-              <a :href="project.href" target="_blank" rel="noreferrer">VIEW -&gt;</a>
-            </div>
+            <template v-if="!project.placeholder">
+              <h3>{{ project.title }}</h3>
+              <p>{{ project.description }}</p>
+              <div class="cyber-project-tags">
+                <span v-for="tag in project.tags" :key="tag">{{ tag }}</span>
+              </div>
+              <div class="cyber-project-meta">
+                <span><b>*</b> {{ project.stars }}</span>
+                <a :href="project.href" target="_blank" rel="noreferrer">VIEW -&gt;</a>
+              </div>
+            </template>
           </article>
         </div>
 
@@ -302,46 +310,43 @@ export default {
 
     const projects = [
       {
-        title: "Python Backend Systems",
-        description: "Backend-focused work with APIs, data models, and service logic built around Python.",
-        tags: ["Python", "FastAPI", "SQLAlchemy"],
-        stars: "API",
-        href: "https://github.com/faridrasidov?tab=repositories",
+        title: "Limon",
+        description: "A fast pure-Bash prompt with Git status, themes, execution timing, and no patched-font requirement.",
+        tags: ["Bash", "Git", "Terminal"],
+        stars: 17,
+        href: "https://github.com/faridrasidov/limon",
       },
       {
-        title: "Telegram Bot Automation",
-        description: "Chat-based automation for tasks, notifications, and lightweight workflow control.",
-        tags: ["Python", "Telegram", "Automation"],
-        stars: "BOT",
-        href: "https://github.com/faridrasidov?tab=repositories",
+        title: "Arvancld",
+        description: "A typed Python SDK for ArvanCloud login, reusable sessions, and CDN DNS record management.",
+        tags: ["Python", "HTTPX", "Pydantic"],
+        stars: 4,
+        href: "https://github.com/faridrasidov/arvancld",
       },
       {
-        title: "API Security Testing",
-        description: "Security-minded API checks informed by OWASP patterns and real request behavior.",
-        tags: ["OWASP", "API", "Testing"],
-        stars: "SEC",
-        href: "https://github.com/faridrasidov?tab=repositories",
+        title: "Caspra",
+        description: "A multi-tenant RFID/NFC stored-value ledger platform for cashless payments and events.",
+        tags: ["FastAPI", "PostgreSQL", "RFID"],
+        stars: 2,
+        href: "https://github.com/faridrasidov/caspra",
       },
       {
-        title: "Linux Deployment Workflows",
-        description: "Small-app deployment support with Linux, Docker, Nginx, and practical server operations.",
-        tags: ["Linux", "Docker", "Nginx"],
-        stars: "OPS",
-        href: "https://github.com/faridrasidov?tab=repositories",
+        title: "Argo IP Radar",
+        description: "An adaptive network diagnostic suite for finding reliable endpoints in filtered, low-bandwidth environments.",
+        tags: ["Python", "Cloudflare", "WebSocket"],
+        stars: 3,
+        href: "https://github.com/echo-corp/argo-ip-radar",
       },
       {
-        title: "OpenAPI Validation",
-        description: "Schema-aware API review and request validation for predictable backend behavior.",
-        tags: ["OpenAPI", "Testing", "Backend"],
-        stars: "DOC",
-        href: "https://github.com/faridrasidov?tab=repositories",
+        title: "Soundcld",
+        description: "A Python API handler for working with SoundCloud's internal V2 API.",
+        tags: ["Python", "SoundCloud", "Requests"],
+        stars: 1,
+        href: "https://github.com/faridrasidov/soundcld",
       },
       {
-        title: "Security Learning Lab",
-        description: "Personal experiments around OWASP, auth mistakes, payload behavior, and defensive fixes.",
-        tags: ["OWASP", "Research", "Practice"],
-        stars: "LAB",
-        href: "https://github.com/faridrasidov?tab=repositories",
+        title: "empty-project-slot",
+        placeholder: true,
       },
     ];
 
