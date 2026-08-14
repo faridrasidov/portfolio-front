@@ -1,0 +1,41 @@
+# Include these directives in the HTTPS server block for im.xakep.ir.
+# Replace the existing SPA fallback that sends every unknown URL to index.html.
+# The server block must already define the deployed dist directory as `root`
+# and must include `index index.html;`.
+
+location = /about {
+    return 301 "https://im.xakep.ir/#about";
+}
+
+location = /projects {
+    return 301 "https://im.xakep.ir/#projects";
+}
+
+location = / {
+    try_files /index.html =404;
+}
+
+location = /robots.txt {
+    try_files $uri =404;
+}
+
+location = /sitemap.xml {
+    default_type application/xml;
+    try_files $uri =404;
+}
+
+location /assets/ {
+    try_files $uri =404;
+    expires 1y;
+    add_header Cache-Control "public, immutable";
+}
+
+location / {
+    try_files $uri $uri/ =404;
+}
+
+error_page 404 /404.html;
+
+location = /404.html {
+    internal;
+}
