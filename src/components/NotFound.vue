@@ -2,7 +2,7 @@
     <div class="error-section">
       <div class="error-content">
         <div class="error-left">
-          <img alt="404-image" class="error-image" src="/404-image.svg"/>
+          <img alt="404-image" class="error-image" :src="ErrorImageURL"/>
         </div>
         <div class="error-right">
           <h1 class="error-right-header">Lost in space?</h1>
@@ -19,4 +19,5 @@
 </template>
 
 <script setup>
+import ErrorImageURL from '/404-image.svg?url';
 </script>

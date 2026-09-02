@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <main class="cyber-page">
     <section id="home" class="cyber-hero">
       <div class="cyber-grid-bg"></div>
@@ -16,13 +16,15 @@
         </h1>
 
         <div class="cyber-typewriter">
-          <Typewriter
-              :autoStart="true"
-              :delay="90"
-              :deleteSpeed="35"
-              :loop="true"
-              :strings="roles"
-          />
+          <ClientOnly>
+            <Typewriter
+                :autoStart="true"
+                :delay="90"
+                :deleteSpeed="35"
+                :loop="true"
+                :strings="roles"
+            />
+          </ClientOnly>
           <span class="cyber-cursor">_</span>
         </div>
 
@@ -115,21 +117,21 @@
         <div class="cyber-project-grid">
           <article
               v-for="project in projects"
-              :key="project.title"
+              :key="project.name"
               class="cyber-project-card"
               :class="{'cyber-project-card-empty': project.placeholder}"
               :aria-hidden="project.placeholder || undefined"
           >
             <span class="corner-accent"></span>
             <template v-if="!project.placeholder">
-              <h3>{{ project.title }}</h3>
+              <h3>{{ project.name }}</h3>
               <p>{{ project.description }}</p>
               <div class="cyber-project-tags">
                 <span v-for="tag in project.tags" :key="tag">{{ tag }}</span>
               </div>
               <div class="cyber-project-meta">
                 <span><b>*</b> {{ project.stars }}</span>
-                <a :href="project.href" target="_blank" rel="noreferrer">VIEW -&gt;</a>
+                <router-link :to="{ name: 'ProjectView', params: { id: project.id } }">VIEW -&gt;</router-link>
               </div>
             </template>
           </article>
@@ -173,8 +175,8 @@
   </main>
 </template>
 
-<script>
-import {markRaw, onBeforeUnmount, onMounted, ref} from "vue";
+<script setup>
+import { markRaw, onBeforeUnmount, onMounted, ref } from "vue";
 import BugIcon from "../assets/icons/bug.svg";
 import CodeIcon from "../assets/icons/code.svg";
 import DiscordIcon from "../assets/icons/social/discord.svg";
@@ -185,209 +187,152 @@ import ShieldIcon from "../assets/icons/shield.svg";
 import TelegramIcon from "../assets/icons/social/telegram.svg";
 import TerminalIcon from "../assets/icons/terminal.svg";
 import Typewriter from "./TypeWriter.vue";
+import projectsData from "../projects.json";
 
-export default {
-  components: {
-    DiscordIcon,
-    FaGithub,
-    LinkedinIcon,
-    MailIcon,
-    TelegramIcon,
-    Typewriter,
+const terminalInput = ref("");
+const terminalLines = ref([]);
+const terminalCommands = [
+  {
+    command: "whoami",
+    outputs: [
+      {text: "backend_dev && security_engineer", variant: "muted"},
+    ],
   },
-  setup() {
-    const terminalInput = ref("");
-    const terminalLines = ref([]);
-    const terminalCommands = [
-      {
-        command: "whoami",
-        outputs: [
-          {text: "backend_dev && security_engineer", variant: "muted"},
-        ],
-      },
-      {
-        command: "cat skills.json",
-        outputs: [
-          {text: '["Python", "FastAPI", "OWASP", "Docker", "Linux"]', variant: "muted"},
-        ],
-      },
-      {
-        command: "ls ./focus/",
-        outputs: [
-          {text: "api-architecture backend-systems  security-review", variant: "purple"},
-        ],
-      },
-      {
-        command: "scan --target portfolio-api",
-        outputs: [
-          {text: "auth-check: pass | rate-limit: review | cors: locked", variant: "success"},
-        ],
-      },
-      {
-        command: "deploy --dry-run",
-        outputs: [
-          {text: "docker/nginx/linux pipeline ready", variant: "muted"},
-        ],
-      },
-    ];
-    let terminalTimer;
-    let terminalStopped = false;
+  {
+    command: "cat skills.json",
+    outputs: [
+      {text: '["Python", "FastAPI", "OWASP", "Docker", "Linux"]', variant: "muted"},
+    ],
+  },
+  {
+    command: "ls ./focus/",
+    outputs: [
+      {text: "api-architecture backend-systems  security-review", variant: "purple"},
+    ],
+  },
+  {
+    command: "scan --target portfolio-api",
+    outputs: [
+      {text: "auth-check: pass | rate-limit: review | cors: locked", variant: "success"},
+    ],
+  },
+  {
+    command: "deploy --dry-run",
+    outputs: [
+      {text: "docker/nginx/linux pipeline ready", variant: "muted"},
+    ],
+  },
+];
+let terminalTimer;
+let terminalStopped = false;
 
-    const sleep = (duration) => new Promise((resolve) => {
-      terminalTimer = window.setTimeout(resolve, duration);
-    });
+const sleep = (duration) => new Promise((resolve) => {
+  terminalTimer = window.setTimeout(resolve, duration);
+});
 
-    const pushTerminalLine = (line) => {
-      terminalLines.value = [...terminalLines.value, line].slice(-8);
-    };
+const pushTerminalLine = (line) => {
+  terminalLines.value = [...terminalLines.value, line].slice(-8);
+};
 
-    const typeCommand = async (command) => {
+const typeCommand = async (command) => {
+  terminalInput.value = "";
+
+  for (const character of command) {
+    if (terminalStopped) return;
+    terminalInput.value += character;
+    await sleep(52 + Math.random() * 36);
+  }
+};
+
+const runTerminal = async () => {
+  while (!terminalStopped) {
+    terminalLines.value = [];
+
+    for (const item of terminalCommands) {
+      if (terminalStopped) return;
+
+      await typeCommand(item.command);
+      await sleep(350);
+      pushTerminalLine({type: "command", text: item.command});
       terminalInput.value = "";
 
-      for (const character of command) {
+      for (const output of item.outputs) {
         if (terminalStopped) return;
-        terminalInput.value += character;
-        await sleep(52 + Math.random() * 36);
+        await sleep(260);
+        pushTerminalLine({type: "output", ...output});
       }
-    };
 
-    const runTerminal = async () => {
-      while (!terminalStopped) {
-        terminalLines.value = [];
+      await sleep(620);
+    }
 
-        for (const item of terminalCommands) {
-          if (terminalStopped) return;
-
-          await typeCommand(item.command);
-          await sleep(350);
-          pushTerminalLine({type: "command", text: item.command});
-          terminalInput.value = "";
-
-          for (const output of item.outputs) {
-            if (terminalStopped) return;
-            await sleep(260);
-            pushTerminalLine({type: "output", ...output});
-          }
-
-          await sleep(620);
-        }
-
-        await sleep(1200);
-      }
-    };
-
-    onMounted(() => {
-      runTerminal();
-    });
-
-    onBeforeUnmount(() => {
-      terminalStopped = true;
-      window.clearTimeout(terminalTimer);
-    });
-
-    const roles = [
-      "Backend Developer",
-      "Security Engineer",
-      "API Architect",
-      "Bug Hunter",
-      "Python Developer",
-    ];
-
-    const skills = [
-      "Python", "JavaScript", "TypeScript",
-      "FastAPI", "Flask", "SQLAlchemy", "RabbitMQ", "Redis", "PostgreSQL",
-      "Docker", "Nginx", "Linux", "Bash", "Git",
-      "Tor", "API Architecture", "AWS", "CTF",
-      "Burp Suite", "OWASP", "Pentesting", "OpenAPI", "Cursor IDE", 
-    ];
-
-    const stats = [
-      {label: "Backend Focus", value: "2022+", icon: markRaw(CodeIcon)},
-      {label: "Security Focus", value: "2024+", icon: markRaw(ShieldIcon)},
-      {label: "Core Stack", value: "Python", icon: markRaw(TerminalIcon)},
-      {label: "API Testing", value: "OWASP", icon: markRaw(BugIcon)},
-    ];
-
-    const projects = [
-      {
-        title: "Limon",
-        description: "A fast pure-Bash prompt with Git status, themes, execution timing, and no patched-font requirement.",
-        tags: ["Bash", "Git", "Terminal"],
-        stars: 17,
-        href: "https://github.com/faridrasidov/limon",
-      },
-      {
-        title: "Arvancld",
-        description: "A typed Python SDK for ArvanCloud login, reusable sessions, and CDN DNS record management.",
-        tags: ["Python", "HTTPX", "Pydantic"],
-        stars: 4,
-        href: "https://github.com/faridrasidov/arvancld",
-      },
-      {
-        title: "Caspra",
-        description: "A multi-tenant RFID/NFC stored-value ledger platform for cashless payments and events.",
-        tags: ["FastAPI", "PostgreSQL", "RFID"],
-        stars: 2,
-        href: "https://github.com/faridrasidov/caspra",
-      },
-      {
-        title: "Argo IP Radar",
-        description: "An adaptive network diagnostic suite for finding reliable endpoints in filtered, low-bandwidth environments.",
-        tags: ["Python", "Cloudflare", "WebSocket"],
-        stars: 3,
-        href: "https://github.com/echo-corp/argo-ip-radar",
-      },
-      {
-        title: "Soundcld",
-        description: "A Python API handler for working with SoundCloud's internal V2 API.",
-        tags: ["Python", "SoundCloud", "Requests"],
-        stars: 1,
-        href: "https://github.com/faridrasidov/soundcld",
-      },
-      {
-        title: "empty-project-slot",
-        placeholder: true,
-      },
-    ];
-
-    const contacts = [
-      {
-        label: "LinkedIn",
-        value: "/in/faridrasidov",
-        href: "https://www.linkedin.com/in/faridrasidov/",
-        icon: markRaw(LinkedinIcon),
-      },
-      {
-        label: "Telegram",
-        value: "@powwershell",
-        href: "https://t.me/powwershell",
-        icon: markRaw(TelegramIcon),
-      },
-      {
-        label: "Email",
-        value: "ftm5pv70@duck.com",
-        href: "mailto:ftm5pv70@duck.com",
-        icon: markRaw(MailIcon),
-      },
-      {
-        label: "Discord",
-        value: "faridrasidov",
-        href: "https://discord.com/",
-        icon: markRaw(DiscordIcon),
-      },
-    ];
-
-    return {
-      roles,
-      skills,
-      stats,
-      projects,
-      contacts,
-      terminalInput,
-      terminalLines,
-    };
-  },
+    await sleep(1200);
+  }
 };
+
+onMounted(() => {
+  runTerminal();
+});
+
+onBeforeUnmount(() => {
+  terminalStopped = true;
+  window.clearTimeout(terminalTimer);
+});
+
+const roles = [
+  "Backend Developer",
+  "Security Engineer",
+  "API Architect",
+  "Bug Hunter",
+  "Python Developer",
+];
+
+const skills = [
+  "Python", "JavaScript", "TypeScript",
+  "FastAPI", "Flask", "SQLAlchemy", "RabbitMQ", "Redis", "PostgreSQL",
+  "Docker", "Nginx", "Linux", "Bash", "Git",
+  "Tor", "API Architecture", "AWS", "CTF",
+  "Burp Suite", "OWASP", "Pentesting", "OpenAPI", "Cursor IDE",
+];
+
+const stats = [
+  {label: "Backend Focus", value: "2022+", icon: markRaw(CodeIcon)},
+  {label: "Security Focus", value: "2024+", icon: markRaw(ShieldIcon)},
+  {label: "Core Stack", value: "Python", icon: markRaw(TerminalIcon)},
+  {label: "API Testing", value: "OWASP", icon: markRaw(BugIcon)},
+];
+
+const projects = [
+  ...projectsData,
+  {
+    name: "empty-project-slot",
+    placeholder: true,
+  },
+];
+
+const contacts = [
+  {
+    label: "LinkedIn",
+    value: "/in/faridrasidov",
+    href: "https://www.linkedin.com/in/faridrasidov/",
+    icon: markRaw(LinkedinIcon),
+  },
+  {
+    label: "Telegram",
+    value: "@powwershell",
+    href: "https://t.me/powwershell",
+    icon: markRaw(TelegramIcon),
+  },
+  {
+    label: "Email",
+    value: "ftm5pv70@duck.com",
+    href: "mailto:ftm5pv70@duck.com",
+    icon: markRaw(MailIcon),
+  },
+  {
+    label: "Discord",
+    value: "faridrasidov",
+    href: "https://discord.com/",
+    icon: markRaw(DiscordIcon),
+  },
+];
 </script>
-
-

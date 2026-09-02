@@ -2,6 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://im.xakep.ir/</loc>
-    <lastmod>2026-08-14</lastmod>
+    <lastmod>2026-08-17</lastmod>
+  </url>
+  <url>
+    <loc>https://im.xakep.ir/projects/limon</loc>
+    <lastmod>2026-08-17</lastmod>
+  </url>
+  <url>
+    <loc>https://im.xakep.ir/projects/arvancld</loc>
+    <lastmod>2026-08-17</lastmod>
+  </url>
+  <url>
+    <loc>https://im.xakep.ir/projects/caspra</loc>
+    <lastmod>2026-08-17</lastmod>
+  </url>
+  <url>
+    <loc>https://im.xakep.ir/projects/argo-ip-radar</loc>
+    <lastmod>2026-08-17</lastmod>
+  </url>
+  <url>
+    <loc>https://im.xakep.ir/projects/soundcld</loc>
+    <lastmod>2026-08-17</lastmod>
   </url>
 </urlset>

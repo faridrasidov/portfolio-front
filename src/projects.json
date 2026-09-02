@@ -1,0 +1,42 @@
+[
+  {
+    "id": "limon",
+    "name": "Limon",
+    "description": "A fast pure-Bash prompt with Git status, themes, execution timing, and no patched-font requirement.",
+    "tags": ["Bash", "Git", "Terminal"],
+    "stars": 17,
+    "githubUrl": "https://github.com/faridrasidov/limon"
+  },
+  {
+    "id": "arvancld",
+    "name": "Arvancld",
+    "description": "A typed Python SDK for ArvanCloud login, reusable sessions, and CDN DNS record management.",
+    "tags": ["Python", "HTTPX", "Pydantic"],
+    "stars": 4,
+    "githubUrl": "https://github.com/faridrasidov/arvancld"
+  },
+  {
+    "id": "caspra",
+    "name": "Caspra",
+    "description": "A multi-tenant RFID/NFC stored-value ledger platform for cashless payments and events.",
+    "tags": ["FastAPI", "PostgreSQL", "RFID"],
+    "stars": 2,
+    "githubUrl": "https://github.com/faridrasidov/caspra"
+  },
+  {
+    "id": "argo-ip-radar",
+    "name": "Argo IP Radar",
+    "description": "An adaptive network diagnostic suite for finding reliable endpoints in filtered, low-bandwidth environments.",
+    "tags": ["Python", "Cloudflare", "WebSocket"],
+    "stars": 3,
+    "githubUrl": "https://github.com/echo-corp/argo-ip-radar"
+  },
+  {
+    "id": "soundcld",
+    "name": "Soundcld",
+    "description": "A Python API handler for working with SoundCloud's internal V2 API.",
+    "tags": ["Python", "SoundCloud", "Requests"],
+    "stars": 1,
+    "githubUrl": "https://github.com/faridrasidov/soundcld"
+  }
+]

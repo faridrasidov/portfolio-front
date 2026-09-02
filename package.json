@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "ssr": "node server.js",
+    "build": "vite-ssg build",
     "preview": "vite preview"
   },
   "keywords": [],
@@ -13,6 +14,10 @@
   "description": "",
   "dependencies": {
     "@mdi/font": "^7.4.47",
+    "@unhead/ssr": "^1.11.20",
+    "@unhead/vue": "^1.9.16",
+    "marked": "^13.0.2",
+    "ofetch": "^1.3.4",
     "typewriter-effect": "^2.21.0",
     "vite-svg-loader": "^5.1.0",
     "vue": "^3.5.12",
@@ -23,6 +28,7 @@
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.14",
-    "vite": "^5.4.10"
+    "vite": "^5.4.10",
+    "vite-ssg": "^0.23.8"
   }
 }

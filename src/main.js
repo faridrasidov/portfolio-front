@@ -1,10 +1,22 @@
-import { createApp } from 'vue'
+import { ViteSSG } from 'vite-ssg'
 import App from './App.vue'
 import './assets/css/fonts.css';
 import './assets/css/tailwind.css'
-import router from './router'
+import { routes } from './router'
 
-const app = createApp(App)
+export const createApp = ViteSSG(
+    App,
+    {
+        routes,
+        scrollBehavior(to) {
+            if (to.hash) {
+                return {
+                    el: to.hash,
+                    behavior: 'smooth',
+                };
+            }
 
-app.use(router)
-app.mount('#app')
+            return { top: 0 };
+        },
+    },
+)

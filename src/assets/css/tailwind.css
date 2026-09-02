@@ -501,5 +501,97 @@
     .error-button {
         @apply bg-[#00f5ff] p-2 rounded-md w-fit max-lg:m-auto text-[#050510] font-bold;
     }
+
+    .cyber-project-page {
+        @apply pt-28;
+    }
+
+    .cyber-back-link {
+        @apply mb-8 inline-flex font-mono text-xs font-black tracking-[0.16em] text-[#00f5ff] no-underline transition-all duration-200 hover:drop-shadow-[0_0_8px_rgba(0,245,255,0.7)];
+    }
+
+    .cyber-project-lead {
+        @apply mb-6 max-w-3xl text-base leading-8 text-[#8888aa];
+    }
+
+    .cyber-project-page-actions {
+        @apply mb-12;
+    }
+
+    .cyber-readme-fallback {
+        @apply max-w-3xl text-sm leading-7 text-[#666688];
+    }
+
+    .cyber-readme {
+        @apply max-w-3xl text-left text-[#c8c8dc];
+    }
+
+    .cyber-readme :where(h1, h2, h3, h4) {
+        @apply mb-4 mt-10 font-black tracking-[-0.02em] text-white;
+    }
+
+    .cyber-readme :where(h1) {
+        @apply text-3xl;
+    }
+
+    .cyber-readme :where(h2) {
+        @apply border-b border-[#00f5ff]/15 pb-3 text-2xl;
+    }
+
+    .cyber-readme :where(h3) {
+        @apply text-xl;
+    }
+
+    .cyber-readme :where(p, ul, ol, blockquote) {
+        @apply mb-4 leading-8 text-[#8888aa];
+    }
+
+    .cyber-readme :where(ul, ol) {
+        @apply pl-6;
+    }
+
+    .cyber-readme :where(ul) {
+        @apply list-disc;
+    }
+
+    .cyber-readme :where(ol) {
+        @apply list-decimal;
+    }
+
+    .cyber-readme :where(a) {
+        @apply text-[#00f5ff] no-underline hover:underline;
+    }
+
+    .cyber-readme :where(code) {
+        @apply rounded bg-[#151528] px-1.5 py-0.5 font-mono text-[0.9em] text-[#d4d4f0];
+    }
+
+    .cyber-readme :where(pre) {
+        @apply mb-6 overflow-x-auto rounded-lg border border-[#00f5ff]/10 bg-[#0d0d1a] p-4;
+    }
+
+    .cyber-readme :where(pre code) {
+        @apply bg-transparent p-0;
+    }
+
+    .cyber-readme :where(img) {
+        @apply my-6 max-w-full rounded-lg border border-[#00f5ff]/10;
+    }
+
+    .cyber-readme :where(blockquote) {
+        @apply border-l-2 border-[#00f5ff]/40 pl-4 italic;
+    }
+
+    .cyber-readme :where(table) {
+        @apply mb-6 w-full border-collapse overflow-hidden text-sm;
+    }
+
+    .cyber-readme :where(th, td) {
+        @apply border border-[#00f5ff]/10 px-3 py-2 text-left;
+    }
+
+    .cyber-readme :where(th) {
+        @apply bg-[#0d0d1a] text-white;
+    }
 }
 

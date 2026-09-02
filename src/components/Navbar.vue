@@ -38,7 +38,8 @@
 </template>
 
 <script>
-import {onBeforeUnmount, onMounted, ref} from "vue";
+import {onBeforeUnmount, onMounted, ref, watch} from "vue";
+import {useRoute} from "vue-router";
 import FaGithub from "../assets/icons/social/github.svg";
 
 export default {
@@ -46,10 +47,11 @@ export default {
     FaGithub,
   },
   setup() {
+    const route = useRoute();
     const navbar = ref(false);
     const menuClass = ref(false);
     const isActive = ref(false);
-    const activeSection = ref("home");
+    const activeSection = ref(route.name === "ProjectView" ? "projects" : "home");
     const links = [
       {name: "home", href: "/#home", section: "home"},
       {name: "about", href: "/#about", section: "about"},
@@ -73,6 +75,11 @@ export default {
     };
 
     const updateActiveSection = () => {
+      if (route.name === "ProjectView") {
+        activeSection.value = "projects";
+        return;
+      }
+
       const marker = window.innerHeight * 0.42;
       let currentSection = "home";
 
@@ -97,6 +104,10 @@ export default {
       scrollHandler();
       requestAnimationFrame(scrollHandler);
       setTimeout(scrollHandler, 250);
+    });
+
+    watch(() => route.fullPath, () => {
+      scrollHandler();
     });
 
     onBeforeUnmount(() => {

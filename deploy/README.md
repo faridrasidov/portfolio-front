@@ -22,6 +22,7 @@ Expected public responses:
 - `/` returns `200` and the portfolio HTML.
 - `/about` returns `301` to `/#about`.
 - `/projects` returns `301` to `/#projects`.
+- `/projects/<id>` returns `200` for known project pages.
 - `/sitemap.xml` returns `200` with an XML content type.
 - An unknown path returns `404` and renders `404.html`.
 

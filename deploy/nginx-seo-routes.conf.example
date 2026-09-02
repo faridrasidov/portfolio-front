@@ -11,6 +11,9 @@ location = /projects {
     return 301 "https://im.xakep.ir/#projects";
 }
 
+# Nested SSG pages live at /projects/<id>/index.html.
+# The generic location / block below already serves them via try_files $uri $uri/.
+
 location = / {
     try_files /index.html =404;
 }
